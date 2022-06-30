@@ -1,5 +1,3 @@
-import logging
-import uuid
 from rest_framework import serializers,status
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
@@ -13,8 +11,6 @@ class BooksCatalogueView(ModelViewSet):
 
     def create(self, request):
         params = request.data.copy()
-
-        print(params)
         serializer = BooksSerializer(data=params)
         if serializer.is_valid():
             book = serializer.save()

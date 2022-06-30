@@ -1,12 +1,10 @@
 import uuid
 from django.db import models
 
-
 # Create your models here
 
 def uuid_generator():
     return str(uuid.uuid4()).replace("-", "")
-
 
 class Books(models.Model):
     id = models.CharField(primary_key=True, max_length=32, default=uuid_generator, editable=False, db_column='_id')

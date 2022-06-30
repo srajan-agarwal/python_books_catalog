@@ -1,17 +1,10 @@
 import uuid
 from django.http import JsonResponse
-import useful
 import logging
 from rest_framework import status
-from django.conf import settings
 
 
 class BaseMiddleware(object):
-    '''
-    middleware to check the tenant code and handling exception (if occurs)
-    Developer: Dheeraj Singh Rajput
-    Remarks: Don't change anything wihthout discussion
-    '''
 
     def __init__(self, get_response):
         self.get_response = get_response
