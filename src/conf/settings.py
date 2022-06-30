@@ -1,18 +1,23 @@
 import os
+import environ, sys
 
 CONF_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(CONF_DIR)
 
 VERSION = os.environ.get('VERSION') if os.environ.get('VERSION') else ''
+env = environ.Env()
+
+# Take environment variables from .env file
+environ.Env.read_env()
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'books_catalog',
-        'USER': 'root',
-        'PASSWORD': 'Welcome@123',
-        'HOST': '127.0.0.1',
-        'PORT': '3306'
+        'ENGINE': env("DB_ENGINE"),
+        'NAME': env("DB_NAME"),
+        'USER': env("DB_USER"),
+        'PASSWORD': env("DB_PASSWORD"),
+        'HOST': env("DB_HOST"),
+        'PORT': env("DB_PORT")
     }
 }
 
@@ -49,7 +54,7 @@ REST_FRAMEWORK = {
     )
 }
 
-SECRET_KEY = 'fadd'
+SECRET_KEY = env("SECRET_KEY")
 
 ROOT_URLCONF = 'urls'
 ALLOWED_HOSTS=['*']
