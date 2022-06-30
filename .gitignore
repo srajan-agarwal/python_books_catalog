@@ -1,3 +1,1 @@
-src/conf/.secrets
-conf/.env.local
-ven1
+src/conf/.env
