@@ -1,4 +1,3 @@
-import uuid
 from django.http import JsonResponse
 import logging
 from rest_framework import status
@@ -18,7 +17,6 @@ class BaseMiddleware(object):
                           extra={"request-id": request.META['x-request-id']})
         response = JsonResponse({"message": "Unknown error"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         return response
-
 
 class ResponseHeaderMiddleware(object):
     '''

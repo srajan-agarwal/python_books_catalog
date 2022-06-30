@@ -1,8 +1,6 @@
 import uuid
 from django.db import models
 
-# Create your models here
-
 def uuid_generator():
     return str(uuid.uuid4()).replace("-", "")
 
