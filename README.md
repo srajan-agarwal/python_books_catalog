@@ -1,16 +1,19 @@
 # python_books_catalog
 Books Catalog 
+Here the code creates an API to create books and add them to a MySQL table using Django Rest Framework
 
-Create a virtual environment
+Steps to Run:- 
+
+1. Create a virtual environment
 python3 -m venv venv1
 
-Activate virtual environment
+2. Activate virtual environment
 source/venv1/bin/activate
 
-Make Migrations
+3. Make Migrations
 python3 src/manage.py makemigrations books
 
-Migrate
+4. Migrate
 python3 src/manage.py migrate
 
 Run Server
